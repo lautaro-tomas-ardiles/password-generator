@@ -1,34 +1,37 @@
+import kotlin.math.roundToInt
+
 fun main() {
 
-    var NumberOfletters = readLine()!!.toInt()
+    print("insert the number of characters of the password : ")
+    val numberOfletters = readLine()!!.toInt()
 
-    var letters = "abcdfghijklmnopqrstuvwxyz"
-    var LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    var number = "0123456789"
-    var simblos = "!@#$%^&*=+-/€<>)"
+    val letters = "abcdfghijklmnopqrstuvwxyz"
+    val lettersMayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    val number = "0123456789"
+    val simblos = "!@#$%^&*=+-/€<>)"
 
     var i = 1
 
-    while (i <= NumberOfletters) {
+    while (i <= numberOfletters) {
 
-        val NumberAleatoryForLetter = Math.round(Math.random() * 25)
-        val NumberAleatoryForNumbers = Math.round(Math.random() * 9)
-        val NumberAleatoryForSimbols = Math.round(Math.random() * 15)
+        val numberAleatoryForLetter = (Math.random() * 25).roundToInt()
+        val numberAleatoryForNumbers = (Math.random() * 9).roundToInt()
+        val numberAleatoryForSimbols = (Math.random() * 15).roundToInt()
 
-        var j = i / 2
-        var k = j * 2
+        val j = i / 2
+        val k = j * 2
 
         if ( i <= 6 ) {
             if ( i == k || i == 1) {
-                print(letters[NumberAleatoryForLetter.toInt()])
+                print(letters[numberAleatoryForLetter])
             }else if ( i != k ) {
-                print(number[NumberAleatoryForNumbers.toInt()])
+                print(number[numberAleatoryForNumbers])
             }
         }else if ( i >= 7 ) {
             if ( i == k ) {
-                print(simblos[NumberAleatoryForSimbols.toInt()])
+                print(simblos[numberAleatoryForSimbols])
             }else if ( i != k ) {
-                print(LETTERS[NumberAleatoryForLetter.toInt()])
+                print(lettersMayus[numberAleatoryForLetter])
             }
         }
         i++
